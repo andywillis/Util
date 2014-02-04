@@ -14,7 +14,7 @@
         evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
         return evt;
       }
-      sdfsdfsdfbhsdoi 
+      sdfsdfsdfbhsd 
       CustomEvent.prototype = window.CustomEvent.prototype;
       window.CustomEvent = CustomEvent;
     })();
