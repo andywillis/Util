@@ -7,7 +7,7 @@
      * Custom event polyfill
      * @return {[type]} [description]
      */
-    (function () {
+    (function (){
       function CustomEvent (event, params) {
         params = params || { bubbles: false, cancelable: false, detail: undefined };
         var evt = document.createEvent( 'CustomEvent' );
