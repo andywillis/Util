@@ -1,7 +1,7 @@
 !function (global) {
   'use strict';
 
-function defineModule(Venda, $) {
+  function defineModule(Venda, $) {
 
     /**
      * Custom event polyfill
