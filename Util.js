@@ -13,7 +13,7 @@
         var evt = document.createEvent( 'CustomEvent' );
         evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
         return evt;
-      } 
+      }                        
       sdfsdfsdfbhsd 
       CustomEvent.prototype = window.CustomEvent.prototype;
       window.CustomEvent = CustomEvent;
