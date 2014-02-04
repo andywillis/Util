@@ -1,16 +1,3 @@
-/*global console: true */
-/*jshint immed: false */
-/*jshint browser: true */
-/*jshint white: true */
-/*jshint bitwise: true */
-/*jshint plusplus: false */
-/*jshint indent: 2 */
-/*jshint eqeqeq: true */
-/*jshint camelcase: false */
-/*jshint expr: true */
-/*jshint laxbreak: true */
-/*jshint onevar: true */
-
 !function (global) {
   'use strict';
 
