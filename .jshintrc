@@ -2,7 +2,8 @@
 	"globals": {
 		"console": true,
 		"google": true,
-		"util": true
+		"util": true,
+		"alert": true
 	},
 	"bitwise": true,
 	"browser": true,
