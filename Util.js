@@ -3,7 +3,7 @@
 
   function defineModule(Venda, $) {
 
-    /**
+    /** 
      * Custom event polyfill
      * @return {[type]} [description]
      */
