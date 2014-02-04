@@ -1,21 +1,3 @@
-/*global console, Modernizr, ActiveXObject, unescape: true */
-/*jshint bitwise: true */
-/*jshint browser: true */
-/*jshint camelcase: false */
-/*jshint curly: true */
-/*jshint eqeqeq: true */
-/*jshint expr: true */
-/*jshint immed: false */
-/*jshint indent: 2 */
-/*jshint latedef: true */
-/*jshint laxbreak: true */
-/*jshint noarg: true */
-/*jshint plusplus: false */
-/*jshint quotmark: single */
-/*jshint undef: true */
-/*jshint unused: true */
-/*jshint trailing: true */
-
 !function (global) {
   'use strict';
 
