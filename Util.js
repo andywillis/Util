@@ -1,3 +1,5 @@
+/* global console, Modernizr, ActiveXObject, unescape: true */
+
 !function (global) {
   'use strict';
 
