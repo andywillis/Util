@@ -8,10 +8,10 @@
      * @return {[type]} [description]
      */
     (function () {
-      function CustomEvent (event, params) {
+      function CustomEvent(event, params) {
         params = params || { bubbles: false, cancelable: false, detail: undefined };
-        var evt = document.createEvent( 'CustomEvent' );
-        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
         return evt;
       }
       CustomEvent.prototype = window.CustomEvent.prototype;
@@ -23,16 +23,16 @@
      * http://stackoverflow.com/questions/2790001/fixing-javascript-array-functions-in-internet-explorer-indexof-foreach-etc
      */
     if (!('bind' in Function.prototype)) {
-      Function.prototype.bind = function(owner) {
+      Function.prototype.bind = function (owner) {
         var that = this, args;
         if (arguments.length <= 1) {
-          return function() {
+          return function () {
             return that.apply(owner, arguments);
           };
         } else {
-          args= Array.prototype.slice.call(arguments, 1);
-          return function() {
-            return that.apply(owner, arguments.length===0? args : args.concat(Array.prototype.slice.call(arguments)));
+          args = Array.prototype.slice.call(arguments, 1);
+          return function () {
+            return that.apply(owner, arguments.length === 0 ? args : args.concat(Array.prototype.slice.call(arguments)));
           };
         }
       };
@@ -42,7 +42,7 @@
      * Add ECMA262-5 string trim if not supported natively.
      */
     if (!('trim' in String.prototype)) {
-      String.prototype.trim = function() {
+      String.prototype.trim = function () {
         return this.replace(/^\s+/, '').replace(/\s+$/, '');
       };
     }
