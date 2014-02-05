@@ -51,24 +51,12 @@
      * Add ECMA262-5 Array methods if not supported natively
      */
     if (!('indexOf' in Array.prototype)) {
-      Array.prototype.indexOf = function(find, i /*opt*/) {
+      Array.prototype.indexOf = function (find, i /*opt*/) {
         var n;
         if (i === undefined) { i = 0; }
         if (i < 0) { i += this.length; }
         if (i < 0) { i = 0; }
         for (n = this.length; i < n; i++) {
-          if (i in this && this[i]===find) { return i; }
-        }
-        return -1;
-      };
-    }
-
-    if (!('lastIndexOf' in Array.prototype)) {
-      Array.prototype.lastIndexOf = function(find, i /*opt*/) {
-        if (i === undefined) { i = this.length - 1; }
-        if (i < 0) { i += this.length; }
-        if (i > this.length-1) { i = this.length - 1; }
-        for (i++; i --> 0;) {
           if (i in this && this[i] === find) { return i; }
         }
         return -1;
@@ -76,7 +64,7 @@
     }
 
     if (!('forEach' in Array.prototype)) {
-      Array.prototype.forEach = function(action, that /*opt*/) {
+      Array.prototype.forEach = function (action, that /*opt*/) {
         for (var i = 0, n = this.length; i < n; i++) {
           if (i in this) { action.call(that, this[i], i, this); }
         }
@@ -84,7 +72,7 @@
     }
 
     if (!('map' in Array.prototype)) {
-      Array.prototype.map = function(mapper, that /*opt*/) {
+      Array.prototype.map = function (mapper, that /*opt*/) {
         var other = new Array(this.length);
         for (var i = 0, n = this.length; i < n; i++) {
           if (i in this) { other[i] = mapper.call(that, this[i], i, this); }
@@ -94,7 +82,7 @@
     }
 
     if (!('filter' in Array.prototype)) {
-      Array.prototype.filter = function(filter, that /*opt*/) {
+      Array.prototype.filter = function (filter, that /*opt*/) {
         var other = [], v;
         for (var i = 0, n = this.length; i < n; i++) {
           if (i in this && filter.call(that, v = this[i], i, this)) { other.push(v); }
@@ -104,7 +92,7 @@
     }
 
     if (!('every' in Array.prototype)) {
-      Array.prototype.every = function(tester, that /*opt*/) {
+      Array.prototype.every = function (tester, that /*opt*/) {
         for (var i = 0, n = this.length; i < n; i++) {
           if (i in this && !tester.call(that, this[i], i, this)) { return false; }
         }
@@ -113,7 +101,7 @@
     }
 
     if (!('some' in Array.prototype)) {
-      Array.prototype.some = function(tester, that /*opt*/) {
+      Array.prototype.some = function (tester, that /*opt*/) {
         for (var i = 0, n = this.length; i < n; i++) {
           if (i in this && tester.call(that, this[i], i, this)) { return true; }
         }
@@ -122,7 +110,7 @@
     }
 
     if (!('contains' in Array.prototype)) {
-      Array.prototype.contains = function(v) {
+      Array.prototype.contains = function (v) {
         for (var i = 0, n = this.length; i < n; i++) {
           if (this[i] === v) { return true; }
         }
@@ -141,7 +129,7 @@
      * @param  {String} s String name of nested property
      * @return {String}   Property value.
      */
-    Object.byString = function(o, s) {
+    Object.byString = function (o, s) {
       var a, n;
       s = s.replace(/\[(\w+)\]/g, '.$1');
       s = s.replace(/^\./, '');
@@ -247,7 +235,7 @@
      * @param  {String} str     The string on which to operate.
      * @return {String}         Processed string.
      */
-    util.replaceAll = function(find, replace, str) {
+    util.replaceAll = function (find, replace, str) {
       return str.replace(new RegExp(find, 'g'), replace);
     };
 
@@ -258,7 +246,7 @@
      * @param  {Object} obj       Data object.
      * @return {String}           HTML.
      */
-    util.applyTemplate = function(template, obj) {
+    util.applyTemplate = function (template, obj) {
       var p, prop, param, html;
       html = util.toType(template) === 'array' ? template.join('') : template;
       for (p in obj) {
@@ -287,7 +275,7 @@
      * @param  {Object} obj Object
      * @return {Array}      Array
      */
-    util.keys = function(obj) {
+    util.keys = function (obj) {
       var arr = [], prop;
       if (Object.keys) { return Object.keys(obj); }
       if (util.toType(obj) === 'object') {
@@ -305,7 +293,7 @@
      * @param  {Arr} propsArr Array of properties
      * @return {Object}       Object
      */
-    util.initPropsAsArrays = function(propsArr) {
+    util.initPropsAsArrays = function (propsArr) {
       var obj, el, prop;
       obj = {};
       for (el in propsArr) {
@@ -323,7 +311,7 @@
      * @param  {Array} arr  Array of properties to be reset.
      * @return {Object}     Updated object.
      */
-    util.objToDefault = function(arr, value) {
+    util.objToDefault = function (arr, value) {
       var index, len, prop, obj;
       obj = {};
       for (index = 0, len = arr.length; index < len; index++) {
@@ -340,7 +328,7 @@
      * @param  {Object}   options  Script root URL, current pageUID, assets object, an array of LABjs object properties.
      * @param  {Function} callback Function called after LABjs object is created.
      */
-    util.compileAssets = function(options, callback) {
+    util.compileAssets = function (options, callback) {
       var script, path, asset, type, appliesTo, applies, labObj;
       labObj = util.initPropsAsArrays(options.labObjProps);
       for (script in options.assets) {
@@ -389,14 +377,14 @@
      * @param  {x}       The structure to be assessed.
      * @return {string}  The identifier.
      */
-    util.toType = function(x) { return ({}).toString.call(x).match(/\s([a-zA-Z]+)/)[1].toLowerCase(); };
+    util.toType = function (x) { return ({}).toString.call(x).match(/\s([a-zA-Z]+)/)[1].toLowerCase(); };
 
     /**
      * Object properties that are null are reset to emptyString.
      * @param  {object} obj Object to be checked.
      * @return {object}     Reformatted object.
      */
-    util.resetNullProperties = function(obj) {
+    util.resetNullProperties = function (obj) {
       var prop;
       for (prop in obj) {
         if (obj.hasOwnProperty(prop) && (obj[prop] === null || obj[prop] === undefined)) {
@@ -412,7 +400,7 @@
      * @param  {Object} b Object B.
      * @return {Object}   Returned merged object.
      */
-    util.merge = function(a, b) {
+    util.merge = function (a, b) {
       var key;
       if (a && b) {
         for (key in b) {
@@ -435,7 +423,7 @@
       req = createXMLHTTPObject();
       if (!req) { return; }
       method = (postData) ? 'POST' : 'GET';
-      req.open(method,url,true);
+      req.open(method, url, true);
       req.onreadystatechange = function () {
         if (req.readyState !== 4) { return; }
         if (req.status !== 200 && req.status !== 304) {
@@ -448,10 +436,10 @@
     };
 
     var XMLHttpFactories = [
-      function () {return new XMLHttpRequest();},
-      function () {return new ActiveXObject('Msxml2.XMLHTTP');},
-      function () {return new ActiveXObject('Msxml3.XMLHTTP');},
-      function () {return new ActiveXObject('Microsoft.XMLHTTP');}
+      function () { return new XMLHttpRequest(); },
+      function () { return new ActiveXObject('Msxml2.XMLHTTP'); },
+      function () { return new ActiveXObject('Msxml3.XMLHTTP'); },
+      function () { return new ActiveXObject('Microsoft.XMLHTTP'); }
     ];
 
     function createXMLHTTPObject() {
@@ -472,7 +460,7 @@
      * Checks whether the browser/device can process touch events.
      * @return {Boolean} True/False.
      */
-    util.isTouchDevice = function() {
+    util.isTouchDevice = function () {
       if ('ontouchstart' in document.documentElement) { return true; }
       else { return false; }
     };
@@ -482,7 +470,7 @@
      * @param  {Array} x Item to be processed.
      * @return {Array}   Array.
      */
-    util.toArray = function(x) {
+    util.toArray = function (x) {
       return Array.prototype.slice.call(x, 0);
     };
 
@@ -491,7 +479,7 @@
      * @param  {String} url URL
      * @return {Object}     Object of URL parameters.
      */
-    util.uritoobj = function(url){
+    util.uritoobj = function (url) {
       var obj = {},
           qloc = url.indexOf('?'),
           str = url.substring(qloc + 1),
@@ -512,7 +500,7 @@
      * @param  {[type]} param       Parameter.
      * @return {String or Boolean}  Value of parameter, or false.
      */
-    util.getUrlParam = function(url, param) {
+    util.getUrlParam = function (url, param) {
       var re = new RegExp('[?&]' + param + '=([^&]+)'), match = url.match(re);
       return match ? unescape(match[1]) : false;
     };
@@ -522,7 +510,7 @@
      * Abstracted version of $(element).length > 0
      * @return {[type]} [description]
      */
-    $.fn.exists = function() {
+    $.fn.exists = function () {
       return this.length > 0;
     };
 
